@@ -1,0 +1,194 @@
+// modules/_mixins.scss
+
+@use "variables" as v;
+@use "functions" as f;
+@use "media_query_mixins" as q;
+
+
+@mixin custom-btn($uppercase: false) {
+    background-color: v.$form-btn-color;
+    opacity: 0.9;
+    font-size: f.rem-calc(13);
+    font-weight: 600;
+    margin-bottom: f.rem-calc(10);
+    padding:f.rem-calc(5 10);
+    transition: all 0.25s ease-in-out;
+    &:hover {
+        opacity: 1;
+    }
+    @if $uppercase {
+        text-transform: uppercase;
+    }
+}
+
+// @mixin box($center-header:false, $border: false, $image: false) {
+//     @if $center-header {
+//         h2 {
+//             margin-bottom: f.rem-calc(0);
+//             text-align: center;
+//         }
+//     }
+//     @if $image {
+//         > img {
+//             display: block;
+//             margin: 0 auto;
+//             padding: f.rem-calc(28);
+//             width: 100%;
+//         }
+//     }
+//     @include q.respond-above(sm) {
+//         background-color: v.$poster-bg-color;
+//         border-radius: f.rem-calc(6);
+//         @if $image {
+//             > img {
+//                 padding: f.rem-calc(40);
+//                 width: 100%;
+//             }
+//         }
+//         @if $border {
+//             border: f.rem-calc(8) solid v.$primary-border-color;
+//             box-shadow: f.rem-calc(5 5 20 2) #000;
+//             text-shadow: 2px 2px #000;
+//         }
+//     }
+// }
+
+@mixin box-message {
+	position: relative;
+    height: 45vh;
+    > div {
+        position: absolute;
+        top: 50%;
+        bottom: 0;
+        right: 0;
+        height: 100%;
+        max-width: 100%;
+        > p {
+            color: v.$tertiary-font-color;
+            text-align: center;
+        }
+    }
+    > a {
+        position: absolute;
+        top: 88%;
+    }
+}
+
+
+@mixin list-color($color-one, $color-two, $color-three, $color-four) {
+    > ul > li {
+        font-size: f.rem-calc(v.$list-font-size-xxsmall);
+        font-weight: 600;
+        list-style: none;
+        margin-bottom: f.rem-calc(32);
+        text-align: center;
+    }
+    > ul > li:nth-of-type(1), > ul > li:nth-of-type(5), > ul > li:nth-of-type(9) {
+        color: $color-one;
+        margin-top: f.rem-calc(40)
+    }
+    > ul > li:nth-of-type(2), > ul > li:nth-of-type(6), > ul > li:nth-of-type(10) {
+        color: $color-two;
+    }
+    > ul > li:nth-of-type(3), > ul > li:nth-of-type(7), > ul > li:nth-of-type(11) {
+        color: $color-three;
+    }
+    > ul > li:nth-of-type(4), > ul > li:nth-of-type(8), > ul > li:nth-of-type(12) {
+        color: $color-four;
+        margin-bottom: 0;
+    }
+}
+
+@mixin item-scroller($bg-color: false) {
+    max-height: 35vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: f.rem-calc(30 40);
+    @if $bg-color {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    // @include q.respond-above(sm) {
+    //     max-height: 40vh;
+    // }
+}
+
+@mixin inner-box($bg-color) {
+	background-color: $bg-color;
+	border-radius: 4px;
+	margin-bottom: f.rem-calc(40);
+    padding: f.rem-calc(10);
+    // @include q.respond-above(sm) {
+    //     padding: f.rem-calc(30);
+    // }
+    p {
+        color: #76bb85;
+        > span {
+            color: #c4c6c7;
+        }
+    }
+}
+
+@mixin product-item {
+    > h2 {
+        text-align: center;
+    }
+    padding: f.rem-calc(16);
+    > a {
+        margin: 0;
+    }
+    img {
+        border-radius: f.rem-calc(15);
+    }
+}
+
+@mixin img-overlay {
+	position: relative;
+	width: 100%;
+    &:hover > .overlay {
+        opacity: 1;
+    }
+    > .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        max-width: 100%;
+        opacity: 0;
+        transition: .5s ease-in-out;
+        background-color: rgba(0, 0, 0, .6);
+        margin: 0 auto;
+        border-radius: f.rem-calc(14);
+        > .overlay-text {
+            color: #f9bf0c;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+    }
+}
+
+@mixin sort-select-summary {
+    margin-bottom: f.rem-calc(40);
+    p {
+        font-weight: 600;
+        text-align: center;
+        text-shadow: 2px 2px 2px #000;
+        > span {
+            color: #c4c6c7;
+        }
+    }
+}
+
+@mixin summary-text() {
+	color: #aaacae;
+	text-align: right;
+}
+
+@mixin summary-text-bold() {
+	font-weight: 600;
+	color: #c4c6c7;
+}

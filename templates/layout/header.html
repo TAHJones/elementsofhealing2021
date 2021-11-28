@@ -1,0 +1,41 @@
+{% load static %}
+
+<!--NAVBAR-->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item dropdown " id="dropDown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Info</a>
+                <div class="dropdown-menu">
+                    <a class="nav-link dropdown-item" href="{% url 'homeopathy' %}">Homeopathy</a>
+                    <a class="nav-link dropdown-item" href="{% url 'consultation' %}">Consultation</a>
+                    <a class="nav-link dropdown-item" href="{% url 'about' %}">About Thomas</a>
+                </div>
+            </li>
+        </ul>
+        <ul class="navbar-nav secondary-navbar">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">Contact</a>
+            </li>
+            <form method="GET" action="{% url 'about' %}" id="searchForm" class="search-form hide-search-form">
+                <div class="input-group">
+                    <input class="form-control" type="text" name="q" placeholder="Search our site">
+                </div>
+            </form>
+            <li class="nav-item">
+                <a id="searchFormButton" class="nav-link" type="submit">
+                    <span class="icon">
+                        <i class="fas fa-search"></i>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>  
+</nav>
+<!--NAVBAR-END-->
