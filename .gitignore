@@ -1,5 +1,11 @@
+.devcontainer/
 .vscode/
 db.sqlite3
 *.sqlite3
 *.pyc
 __pycache__
+.dockerignore
+Dockerfile
+docker-compose.debug.yml
+docker-compose.yml
+notes.md
