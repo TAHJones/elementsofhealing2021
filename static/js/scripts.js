@@ -1,5 +1,6 @@
 const backToTop = document.getElementById("backToTop");
 const searchFormButton = document.getElementById("searchFormButton");
+const closeToastBg = document.querySelector(".close");
 
 
 /**
@@ -8,10 +9,12 @@ const searchFormButton = document.getElementById("searchFormButton");
  */
 function responsiveTitle() {
     let title = document.getElementById("title");
-    if(window.innerWidth < 576) {
-        title.textContent = "Thomas Jones - Homeopath";
-    } else {
-        title.textContent = "Thomas Jones BSc LCHE - Classical Homeopath";
+    if(title != null) {
+        if(window.innerWidth < 576) {
+            title.textContent = "Thomas Jones - Homeopath";
+        } else {
+            title.textContent = "Thomas Jones BSc LCHE - Classical Homeopath";
+        }
     }
 }
 
@@ -97,6 +100,26 @@ function showSearchForm() {
         searchForm.classList.add("hide-search-form");
     }
 }
+
+
+$(document).ready(function(){
+    /**
+     * jquery to intialise bootstrap toasts
+     */
+     $('.toast').toast('show');
+
+
+     /**
+      * Function hides custom toast background when toast close button is clicked
+      */
+     if(closeToastBg != null){
+         closeToastBg.addEventListener("click", function(){
+             const toastContainerBg = document.querySelector(".toast-container-bg");
+             toastContainerBg.style.display = "none";
+         }, false);
+     }
+ });
+
 
 
 // eventlisteners
