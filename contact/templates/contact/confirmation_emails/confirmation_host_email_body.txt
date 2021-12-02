@@ -1,0 +1,13 @@
+Hello Thomas
+
+You have received the following message from your contact page:
+
+Name: {{ email.name }}
+Email: {{ email.cust_email }}
+Date: {{ email.date }}
+
+Message: {{ email.message }}
+
+Best wishes,
+
+Elements of Healing
